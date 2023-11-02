@@ -40,7 +40,10 @@ export class EmployeeComponent implements OnInit {
 
     if (form.value._id) {
       this.employeeService.putEmployee(form.value)
-        .subscribe();
+        .subscribe(() => {
+          this.getEmployeesData$ = this.employeeService.getEmployees();
+          form.reset();
+        });
     } else {
 
       this.employeeService.createEmployee(form.value).subscribe(() => {
@@ -69,11 +72,9 @@ export class EmployeeComponent implements OnInit {
 
   editEmployee(employee: Employee) {
 
-    console.log('Estoy en el edit dentro del componente y esto vale employee._id', employee._id);
-    console.log('Estoy en el edit dentro del componente y esto vale employee.name', employee.name);
-    console.log('Estoy en el edit dentro del componente y esto vale this.employeeService.selectedEmployee._id antes', this.employeeService.selectedEmployee._id);
+    
     this.employeeService.selectedEmployee = employee;
-    console.log('Estoy en el edit dentro del componente y esto vale this.employeeService.selectedEmployee._id después', this.employeeService.selectedEmployee._id);
+    
 
   }
 
