@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class= "card-body">
+
+                <form #employeeForm = "ngForm" (ngSubmit)="addEmployee(employeeForm)">
+
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" [(ngModel)] = "employeeService.selectedEmployee._id" name="_id">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter your FullName" [(ngModel)] = "employeeService.selectedEmployee.name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter your Position" [(ngModel)] = "employeeService.selectedEmployee.position" name="position">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter your Office" [(ngModel)] = "employeeService.selectedEmployee.office" name="office">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter your Salary" name="salary" [(ngModel)] = "employeeService.selectedEmployee.salary" >
+                    </div>
+                    
+                    <button class="btn btn-secondary btn-sm mr-2" type="submit">Save</button>
+                    <button class="btn btn-danger btn-sm mr-2" type="button" (click)="resetForm(employeeForm)">Clean</button>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Position
+                    </th>
+                    <th>
+                        Office
+                    </th>
+                    <th>
+                        Salary
+                    </th>
+                    <th>
+                        Operations
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of this.getEmployeesData$ |async">
+                    <td>{{employee._id}}</td>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.position}}</td>
+                    <td>{{employee.office}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" (click) ="editEmployee(employee)">
+                            <span class="material-icons">
+                                edit
+                            </span>
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteEmployee(employee   )">
+                            <span class="material-icons">
+                                delete
+                            </span>
+                        </button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+
+        </table>
+
+    </div>
+</div>
+
+
+

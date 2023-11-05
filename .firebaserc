@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "employees-b25bb"
+  },
+  "targets": {
+    "employees-b25bb": {
+      "hosting": {
+        "frontend": [
+          "employees-b25bb"
+        ]
+      }
+    }
+  }
+}
