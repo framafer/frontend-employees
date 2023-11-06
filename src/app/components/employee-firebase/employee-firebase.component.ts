@@ -15,13 +15,22 @@ export class EmployeeFirebaseComponent {
 
 
   employees: Employee[] = [];
-  
+
+  public employeeSelected: Employee;
+
+    
 
   /* public getEmployeesData$: Observable<Employee[]>;
   public subjectEmpleados$!: Observable<Employee[]>;
  */
   constructor(public employeeFirebaseService: EmployeeFirebaseService, public employeeService: EmployeeService ) {
 
+    this.employeeSelected = {
+      name: '',
+      office: '',
+      position: '',
+      salary: 0,
+    }
    
   }
 
@@ -166,14 +175,21 @@ export class EmployeeFirebaseComponent {
 
 
   editEmployee(employee: Employee) {
-    this.employeeFirebaseService.employeeSelected = employee;
+    this.employeeSelected = employee;
     console.log('Esoy en el edit y el employee.name: ', employee.name);
 
   }
 
 
   resetForm(form: NgForm) {
-    form.reset();
+    this.employeeSelected = {
+      name: '',
+      office: '',
+      position: '',
+      salary: 0,
+    }
+    //form.reset();
+    this.getEmployees();
   } 
 
 }

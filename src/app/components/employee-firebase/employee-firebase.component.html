@@ -6,19 +6,19 @@
                 <form #employeeForm = "ngForm" (ngSubmit)="addEmployee(employeeForm)">
 
                     <div class="form-group">
-                        <input type="hidden" class="form-control" [(ngModel)] = "employeeFirebaseService.employeeSelected.id" name="id">
+                        <input type="hidden" class="form-control" [(ngModel)] = "employeeSelected.id" name="id">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter your FullName" [(ngModel)] = "employeeFirebaseService.employeeSelected.name" name="name">
+                        <input type="text" class="form-control" placeholder="Enter your FullName" [(ngModel)] = "employeeSelected.name" name="name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter your Position" [(ngModel)] = "employeeFirebaseService.employeeSelected.position" name="position">
+                        <input type="text" class="form-control" placeholder="Enter your Position" [(ngModel)] = "employeeSelected.position" name="position">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter your Office" [(ngModel)] = "employeeFirebaseService.employeeSelected.office" name="office">
+                        <input type="text" class="form-control" placeholder="Enter your Office" [(ngModel)] = "employeeSelected.office" name="office">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter your Salary" name="salary" [(ngModel)] = "employeeFirebaseService.employeeSelected.salary" >
+                        <input type="text" class="form-control" placeholder="Enter your Salary" name="salary" [(ngModel)] = "employeeSelected.salary" >
                     </div>
                     
                     <button class="btn btn-secondary btn-sm mr-2" type="submit">Save</button>
