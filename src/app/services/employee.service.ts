@@ -45,7 +45,7 @@ export class EmployeeService{
   }
 
   putEmployee(employee:Employee){
-    return this.http.put(`${this.URL_API}/${employee._id}`, employee);    
+    return this.http.put(`${this.URL_API}/${employee.id}`, employee);    
   }
 
   }

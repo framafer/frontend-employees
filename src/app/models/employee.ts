@@ -5,5 +5,5 @@ export interface Employee{
     salary: number,
     createdAt?: string,
     updatedAt?: string,
-    _id?: string
+    id?: string
 }

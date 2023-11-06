@@ -38,7 +38,7 @@ export class EmployeeComponent implements OnInit {
 
   addEmployee(form: NgForm) {
 
-    if (form.value._id) {
+    if (form.value.id) {
       this.employeeService.putEmployee(form.value)
         .subscribe(() => {
           this.getEmployeesData$ = this.employeeService.getEmployees();
@@ -58,8 +58,8 @@ export class EmployeeComponent implements OnInit {
   deleteEmployee(employee: Employee) {
     
     if (confirm('Are you sure you want to delete it ?')) {
-      if (employee._id) {
-        const elid: string = employee._id;
+      if (employee.id) {
+        const elid: string = employee.id;
         this.employeeService.deleteEmployee(elid).subscribe(
           (res) => {
             this.getEmployeesData$ = this.employeeService.getEmployees();
@@ -71,8 +71,6 @@ export class EmployeeComponent implements OnInit {
 
 
   editEmployee(employee: Employee) {
-
-    
     this.employeeService.selectedEmployee = employee;
     
 
