@@ -1,0 +1,6 @@
+ESta aplicación ya la tengo en Firebase.
+Primero hice una versión con Frontend y backend. Luego sustituí el backend por el Firebase y ya la tengo subida al Firebase. 
+Para acceder a ella, en la URL:    https://employees-b25bb.web.app
+
+
+
