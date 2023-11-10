@@ -1,0 +1,53 @@
+<app-navegacion></app-navegacion>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <span class="h1 fw-bold mb-0"><img src="\assets\photos\Logo_gabbiano.png">Registro</span>
+            <div class="d-flex justify-content-center">
+                <form [formGroup]="registroConUsConForm" (ngSubmit)="onSubmitRegistroConUsCon()">
+                    <label class="col-4 form-label" for="registerName">Name</label>
+                    <input type="text" id="registerName" class="col-4 form-control" name="registerName" formControlName="registerName"/>
+
+                    <label class="col-4 form-label" for="registerUsername">Username</label>
+                    <input type="text" id="registerUsername" class="col-4 form-control" name="registerUsername"
+                        formControlName="registerUsername"/>
+
+                    <label class="col-6 form-label" for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="col-6 form-control" name="registerEmail" formControlName="registerEmail"/>
+
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="registerPassword" class="col-4 form-control" name="registerPassword" formControlName="registerPassword"/>
+
+                    <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                    <input type="password" id="registerRepeatPassword" class="form-control" name="registerRepeatPassword"
+                        formControlName="registerRepeatPassword"/>
+
+                    <button class="btn btn-info btn-lg btn-block" type="submit">Registrarse</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4 d-none d-md-block">
+            <img src="\assets\photos\vista-golfo-soverato-1024x752.jpg">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="d-flex justify-content-center">
+                <div>
+                    <form>
+                        <button type="button" class="btn btn-info" (click)="onSubmitRegistroConGoogle()">Iniciar sesión con Google</button>
+                    </form>
+                </div>
+                <div>
+                    <a routerLink="/login">Volver al Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

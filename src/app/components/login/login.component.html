@@ -1,0 +1,45 @@
+<app-navegacion></app-navegacion>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 vh-100">
+      <span class="h1 fw-bold mb-0"><img src="\assets\photos\Logo_gabbiano.png"></span>
+      <div class="d-flex justify-content-center">
+        <form [formGroup]="loginConUsConForm" (ngSubmit)="onSubmitConUsCon()">
+          <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+          <div class="form-outline mb-4">
+            <input type="text" id="email" class="form-control" placeholder="Email" name="email"
+                   formControlName="email"/>
+            <label class="form-label">User Name</label>
+          </div>
+          <div class="form-outline mb-4">
+            <input type="password" id="password" class="form-control" placeholder="Password" name="password"
+                   formControlName="password"/>
+            <label class="form-label">Password</label>
+          </div>
+          <div class="pt-1 mb-4">
+            <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
+          </div>
+          <label class="form-label" [hidden]="!mensajeNoLogeado">Usuario Inexistente</label>
+          <p>Not a member? <a routerLink="/registro">Register</a></p>
+
+          <div>
+            <form (ngSubmit)="onSubmitRegistroConGoogle()">
+                <button type="submit" class="btn btn-info">Iniciar sesión con Google</button>
+            </form>
+        </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="col-6 d-none d-md-block">
+      <img src="\assets\photos\vista-golfo-soverato-1024x752.jpg"
+           alt="Login image" class="img-fluid vh-100">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

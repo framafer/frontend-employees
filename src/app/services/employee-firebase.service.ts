@@ -4,7 +4,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Employee } from '../models/employee';
 import { BehaviorSubject, Observable, Subject, map, pipe, tap } from 'rxjs';
-import { Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDoc, getDocs, updateDoc } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDoc, getDocs, getFirestore, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +31,7 @@ export class EmployeeFirebaseService{
 
 
   getEmployees(): Observable<Employee[]> {
+    
     const employeeRef = collection(this.firestore, 'employees');
     return collectionData(employeeRef, { idField: 'id' }) as Observable<Employee[]>;
   }

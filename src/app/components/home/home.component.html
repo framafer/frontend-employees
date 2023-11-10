@@ -1,0 +1,14 @@
+<app-navegacion></app-navegacion>
+<div class="content text-center m-3">
+  <div class="row justify-content-center">
+    <div class="card col-md-10 mx-3 card shadow p-3 mb-5 bg-grey rounded">
+      <div class="card-body">
+        <h3 class="card-title"> "Bienvenido a esta aplicación de Listar Empleados"</h3>
+        
+        <div [hidden]="isLogged"><p class="card-text">Debe hacer el Login antes de empezar</p>
+            <a *ngIf="!isLogged" class="btn btn-success" routerLink="/login">Accedi </a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
