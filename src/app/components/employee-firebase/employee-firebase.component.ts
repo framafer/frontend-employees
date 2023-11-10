@@ -1,8 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription, map, pipe } from 'rxjs';
 import { Employee } from 'src/app/models/employee';
+import { AutenticacionService } from 'src/app/services/autenticacion.service';
 import { EmployeeFirebaseService } from 'src/app/services/employee-firebase.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -23,7 +25,7 @@ export class EmployeeFirebaseComponent {
   /* public getEmployeesData$: Observable<Employee[]>;
   public subjectEmpleados$!: Observable<Employee[]>;
  */
-  constructor(public employeeFirebaseService: EmployeeFirebaseService, public employeeService: EmployeeService ) {
+  constructor(public employeeFirebaseService: EmployeeFirebaseService, public autenticacionService:AutenticacionService, public route: ActivatedRoute,public router:Router) {
 
     this.employeeSelected = {
       name: '',
@@ -190,7 +192,12 @@ export class EmployeeFirebaseComponent {
     }
     //form.reset();
     this.getEmployees();
-  } 
+  }
+  
+  public logOut(){
+    this.autenticacionService.logout();
+    this.router.navigate(['/login']);
+  }
 
 }
 

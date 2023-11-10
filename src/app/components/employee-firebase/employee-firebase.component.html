@@ -35,9 +35,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>
+                    <!-- <th>
                         ID
-                    </th>
+                    </th> -->
                     <th>
                         Name
                     </th>
@@ -57,7 +57,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let employee of employees">
-                    <td>{{employee.id}}</td>
+                    <!-- <td>{{employee.id}}</td> -->
                     <td>{{employee.name}}</td>
                     <td>{{employee.position}}</td>
                     <td>{{employee.office}}</td>
@@ -84,6 +84,15 @@
 
     </div>
 </div>
+
+<div class="row">
+    <button class="btn btn-secondary btn-sm" (click) ="logOut()">Salir
+        <span class="material-icons">
+            
+        </span>
+    </button>
+</div>
+
 
 
 

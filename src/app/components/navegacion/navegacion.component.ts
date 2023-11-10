@@ -10,12 +10,12 @@ import {AutenticacionService} from "src/app/services/autenticacion.service"
 export class NavegacionComponent {
   public isLogged: boolean;
 
-  constructor(public route: ActivatedRoute,public auth:AutenticacionService,public router:Router) {
+  constructor(public route: ActivatedRoute,public router:Router,public autenticacionService:AutenticacionService) {
 
-    this.isLogged = this.auth.usuarioAutenticado;
+    this.isLogged = this.autenticacionService.usuarioAutenticado;
   }
   public logOut(){
-    this.auth.logout();
+    this.autenticacionService.logout();
     this.router.navigate(['/login']);
   }
 }

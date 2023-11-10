@@ -245,6 +245,8 @@ export class AutenticacionService {
   logout() {
     const auth = getAuth();
     auth.signOut();
+    this.usuarioAutenticado = false;
+    
   }
 
   public setAutenticado(autenticado:boolean){
