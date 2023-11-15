@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 
 import { EmployeeFirebaseComponent } from './components/employee-firebase/employee-firebase.component';
+import { AutenticationGuard } from './autentication.guard';
 //import {HomeComponent} from "./Componentes/home/home.component";
 //import {LoginComponent} from "./Componentes/login/login.component";
 //import {RegistrationComponent} from "./Componentes/registration/registration.component";
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"login",component:LoginComponent},
   {path:"registro",component:RegistroComponent},
-  {path:"employee",component:EmployeeFirebaseComponent} 
+  {path:"employee",component:EmployeeFirebaseComponent, canActivate:[AutenticationGuard]} 
 ];
 
 @NgModule({

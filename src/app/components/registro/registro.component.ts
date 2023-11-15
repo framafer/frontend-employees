@@ -29,18 +29,24 @@ export class RegistroComponent {
 
 
   constructor(public formBuilder: FormBuilder, public router: Router, public autenticacionService: AutenticacionService) {
+
+    /* this.registroConUsConForm = this.fb.group({
+      registerEmail: ["", [Validators.required, Validators.email]],
+      registerPassword: ["", [Validators.required, Validators.minLength(6)]],
+      registerRepeatPassword: ["", [Validators.required, Validators.minLength(6)]]
+    }); */
+
+
     this.registroConUsConForm = this.formBuilder.group({
       id: [""],
-      registerName: ["", [Validators.required, Validators.minLength(4)]],
-      registerUsername: ["", [Validators.required, Validators.minLength(4)]],
+      registerName: [""],
+      registerUsername: [""],
       registerEmail: ["", [Validators.required, Validators.email]],
-      registerPassword: ["", [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-      Validators.minLength(6)]],
-      registerRepeatPassword: ["", [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-      Validators.minLength(6)]]
-    });
-    this.registroConGoogleForm = this.formBuilder.group({});
-
+      registerPassword: ["", [Validators.required, Validators.minLength(6)]],
+      registerRepeatPassword: ["", [Validators.required, Validators.minLength(6)]]
+    }, { validator: this.passwordMatchValidator });
+    this.registroConGoogleForm = this.formBuilder.group({}); 
+ 
   }
 
   ngOnInit() {
@@ -48,21 +54,25 @@ export class RegistroComponent {
   }
 
   onSubmitRegistroConUsCon() {
-    let usuario = this.saveUserdata();
-    console.log("Esto vale usuario", usuario);
-    if (usuario.registerPassword == usuario.registerRepeatPassword) {
-      //const usuario = this.saveUserdata();
-      this.autenticacionService.registroUsuarioUsCon({email:usuario.registerEmail, password:usuario.registerPassword});
-      setTimeout(() =>{
-        if (this.autenticacionService.usuarioAutenticado === true){
-          this.usuarioAutenticado = true;
-          console.log("Estoy dentro de registro component y this.usuarioAutenticado vale:", this.usuarioAutenticado);
-          
-        } 
-      },3000);
-    } else {
-      alert("El password no coincide");
-    }
+
+    
+
+              let usuario = this.saveUserdata();
+              console.log("Esto vale usuario", usuario);
+              if (usuario.registerPassword == usuario.registerRepeatPassword) {
+                //const usuario = this.saveUserdata();
+                this.autenticacionService.registroUsuarioUsCon({email:usuario.registerEmail, password:usuario.registerPassword});
+                setTimeout(() =>{
+                  if (this.autenticacionService.usuarioAutenticado === true){
+                    this.usuarioAutenticado = true;
+                    console.log("Estoy dentro de registro component y this.usuarioAutenticado vale:", this.usuarioAutenticado);
+                    
+                  } 
+                },3000);
+              } else {
+                alert("El password no coincide");
+              }
+      
 
 
   }
@@ -97,5 +107,13 @@ export class RegistroComponent {
 
   isAuth() {
     return this.autenticacionService.isAuthenticated();
+  }
+
+
+  passwordMatchValidator(form: FormGroup) {
+    const password = form.get('registerPassword')?.value;
+    const repeatPassword = form.get('registerRepeatPassword')?.value;
+  
+    return password === repeatPassword ? null : { passwordMismatch: true };
   }
 }

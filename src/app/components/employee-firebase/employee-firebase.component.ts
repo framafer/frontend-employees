@@ -95,64 +95,7 @@ export class EmployeeFirebaseComponent {
       };
       
     }
-      
-      
-  
-    
-
-  /*
-
-
-  async deleteEmployee(employee:Employee) {
-    
-    if (confirm('Are you sure you want to delete it ?')) {
-
-      if (employee._id != null) {
-
-        console.log('El valor del employee._id es: ', employee._id);
-        this.employeeFirebaseService.deleteEmployee(employee._id).then((resolve) => {
-          this.getEmployeesData$ = this.employeeFirebaseService.getEmployees();
-          //console.log(response);
-
-        }, );   
-          
-
-      }
-      
-    }
-      
-  }
- */
-      /* console.log(employee);
-      const response = await this.employeeFirebaseService.deleteEmployee(employee);
-        this.getEmployeesData$ = this.employeeFirebaseService.getEmployees();
-        console.log(response);
-      };
-
-
-      if (confirm('Are you sure you want to delete it ?')) {
-        if (employee._id) {
-          const elid: string = employee._id;
-          this.employeeService.deleteEmployee(elid).subscribe(
-            (res) => {
-              this.getEmployeesData$ = this.employeeService.getEmployees();
-            }
-          );
-        }
-      } */
-
-
-
      
-
-
-      
-        //const elid: string = employee._id;
-      /* console.log('El empleado a borrar: ', employee);
-      const response = await this.employeeFirebaseService.deleteEmployee(employee).as Observable.then((response) => {
-        this.getEmployeesData$ = this.employeeFirebaseService.getEmployees();
-        //console.log(response); */
-      
         deleteEmployee(employee:Employee) {
     
           if (confirm('Are you sure you want to delete it ?')) {

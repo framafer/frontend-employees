@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "employees-b25bb"
+    "default": "employees-b25bb",
+    "alias_employees": "employees-b25bb"
   },
   "targets": {
     "employees-b25bb": {
@@ -10,5 +11,6 @@
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }
